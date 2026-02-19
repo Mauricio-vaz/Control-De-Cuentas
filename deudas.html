@@ -69,12 +69,12 @@
                     onchange = "toggleDeuda(${index})">
                     El monto es: $${item.deuda} es cuenta ${item.tipo} con la tarjeta ${item.tarjeta}. DESCRIPCIÓN: ${item.descripcion} fecha:${obtenerFecha()}
                     <div class="botones">
-                        <button class = "btn1" onclick="editarDeuda(${index})">✏️💲</button>
-                        <button class = "btn2" onclick="tipoDeuda(${index})">👤👥</button>
-                        <button class = "btn3" onclick="tarjetaDeuda(${index})">💳</button>
-                        <button class = "btn4" onclick="descripcionDeuda(${index})">📝</button>
-                        <button class = "btn5" onclick="borrarDeuda(${index})">🗑️</button>
-                        <button class = "btn6" onclick="abonoDeuda(${index})">abono</button>
+                        <button class = "btn" onclick="editarDeuda(${index})">Editar</button>
+                        <button class = "btn" onclick="tipoDeuda(${index})">Tipo</button>
+                        <button class = "btn" onclick="tarjetaDeuda(${index})">Tarjeta</button>
+                        <button class = "btn" onclick="descripcionDeuda(${index})">Descripción</button>
+                        <button class = "btn" onclick="borrarDeuda(${index})">Borrar</button>
+                        <button class = "btn" onclick="abonoDeuda(${index})">abono</button>
 
                         </div>
                         <br>
