@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="personal.css">
+    <title>Programa-De-Recordatorio</title>
+</head>
+<body>
+    <header>
+        <h1>Control De Pendientes Diarios</h1>
+    </header>
+
+    <div class="contenedor">
+        <label for="">Nuevo Pendiente:</label>
+        <div class="fila">
+        <input type="text" name="" id="inputpendiente">
+        <button class="btn" onclick="agregarPendiente()">Agregar</button>
+        </div>
+        <p id="terminado">Lista De Pendientes:</p>
+        <div class="pendientes"></div>
+    </div>
+
+    <script>
+        let pendientes =JSON.parse(localStorage.getItem("pendientes")) ||[];
+        function guardarPendientes(){
+            localStorage.setItem("pendientes",JSON.stringify(pendientes));
+        }
+
+        function renderPendientes(){
+            const contenedor = document.querySelector(".pendientes");
+            contenedor.innerHTML = "";
+
+            pendientes.forEach((pendientes, index)=>{
+                const p = document.createElement("p");
+
+                p.innerHTML = `
+                <input type = "checkbox" ${pendientes.completado ? "checked" : ""}
+                    onchange='togglePendiente(${index})'>
+                    ${pendientes.texto}
+                    <div class= "botones">
+                        <button class= "btnE" onclick="editarPendiente(${index})">✏</button>
+                        <button class= "btnE" onclick="borrarPendiente(${index})">🗑</button>
+                    </div>
+                    <br>
+                `;
+                contenedor.appendChild(p);
+            });
+        }
+
+
+        //Agregar un pendiente
+        function agregarPendiente(){
+            const input = document.querySelector("input[type= 'text']");
+            if(!input.value.trim())
+            return;
+        pendientes.push({texto: input.value, completado:false});
+        input.value = "";
+        guardarPendientes();
+        renderPendientes();
+        }
+
+        //marcar o desmarcar un pendiente
+        function togglePendiente(index){
+            pendientes[index].completado = !pendientes[index].completado;
+            guardarPendientes();
+            renderPendientes();
+        }
+
+        //Eliminar Un Pendiente
+        function borrarPendiente(index){
+            pendientes.splice(index, 1);
+            guardarPendientes();
+            renderPendientes();
+        }
+
+        //Editar Un Pendiente
+        function editarPendiente(index){
+            const nuevo = prompt("Editar Pendiente:", pendientes[index].texto);
+            if(nuevo){
+                pendientes[index].texto = nuevo;
+                guardarPendientes();
+                renderPendientes();
+            }
+        }
+        renderPendientes();
+    </script>
+</body>
+</html>

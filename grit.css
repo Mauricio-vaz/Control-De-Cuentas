@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+header{
+    width: 98%;
+    border: 2px solid rgb(124, 115, 115);
+    size: 1.5rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #0e4a61;
+    color: #131b25;
+    padding: 10px 0px;
+}
+
+.container{
+    width: 98%;
+    margin: 20px auto;
+    padding: 10px;
+    border: 2px solid rgb(124, 115, 115);
+    border-radius: 10px;
+    background-color: #0986ab;
+    text-align: center;
+}
+.container input{
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    background: #ace2ee;
+    border: transparent;
+
+}
+.container .btnH{
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    border: transparent;
+    color: #131b25;
+}
+
+.habitos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+input[type="checkbox"]{
+    appearance: none;
+    width: 35px;
+    height: 18px;
+    background: #ccc;
+    border-radius: 10px;
+    position: relative; 
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: 0.3s;
+}
+
+input[type="checkbox"]:checked {
+    background: #3bb355;
+}
+
+input[type="checkbox"]:checked::before {
+    transform: translateX(16px);
+}
+
+.habitos p{
+    margin: 2px;
+}   
+
+.botones{
+    display: inline;
+    float: right;
+}
+
+.botones button{
+    border-radius: 8px;
+    border: none;
+    width: 20px;
+    height: 20px;
+}
+

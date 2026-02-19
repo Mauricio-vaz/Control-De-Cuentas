@@ -1,0 +1,95 @@
+*{
+    background-color: cadetblue;
+    font-family: 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+
+}
+
+header{
+    width: 98%;
+    border: 2px solid #ccc;
+    size: 1.5rem;
+    text-align: center;
+    border-radius: 8px;
+    padding: 10px 0;
+}
+
+.contenedor{
+    width: 98%;
+    margin: 20px auto;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+}
+
+.contenedor input{
+    margin: 10px;
+    width: 60%;
+    height: auto;
+    padding: 5px;
+    background-color: #ffffff7a;
+    border: transparent;
+    border-radius: 8px;
+
+}
+
+/*Botones*/
+button{
+    margin: 0;
+    width: 75px;
+    padding: 5px;
+    border-radius: 8px;
+    border: none;
+    background-color: #6fa773;
+    box-shadow: #ccc 1px 3px 4px -1px;
+}
+
+.btnE{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: transparent;
+    color: #000000;
+}
+input[type="checkbox"]{
+    appearance: none;
+    width: 35px;
+    height: 18px;
+    background: #ccc;
+    border-radius: 10px;
+    position: relative; 
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: 0.3s;
+}
+
+input[type="checkbox"]:checked {
+    background: #3bb355;
+}
+
+input[type="checkbox"]:checked::before {
+    transform: translateX(16px);
+}
+.pendientes{
+    justify-content: space-around;
+    align-items: center;
+}
+.pendientes p{
+    margin: 2px;
+}
+.botones{
+    display: inline;
+    float: right;
+    border-radius: 8px;
+}
