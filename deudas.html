@@ -12,34 +12,46 @@
 </header>
 <body>
     <div class="contenedor">
+    
+    <div class="raya">
     <label for="deuda">Monto: </label>
     <input type="tel" name="" id="deuda">
-
+    </div>
+    
+    <div class="raya">
     <label for="">Deuda: </label>
     <input type="text" list="tip" id="tipo">
     <datalist id="tip">
         <option value="propia"></option>
         <option value="de terceros"></option>
     </datalist>
+    </div>
 
+    <div class="raya">
     <label for="">Tarjeta: </label>
     <input type="text" list="tarje" id="tarjeta">
     <datalist id="tarje">
         <option value="Santander"></option>
-        <option value="Mecardo Pago"></option>
-        <option value="BBVA "></option>
+        <option value="Mecardo pago"></option>
+        <option value="BBVA"></option>
     </datalist>
+    </div>
     
-        <label for="">Descripción</label>
-        <input type="text" id="descripcion">
-        <button class="btn" onclick="agregarDeuda()">Agregar</button>
-        <p>RESULTADO:</p>
-        <div class="resultado">
-        </div>
-        <div class="conTar">
-            <P>MONTO TOTAL DE TARJETAS:</P>
-        </div>
+    <div class="raya">
+    <label for="">Descrip.</label>
+    <input type="text" id="descripcion">
+    </div>
 
+    <div class="raya">
+    <button class="btn1" onclick="agregarDeuda()">Agregar</button>
+    </div>
+    <p>RESULTADO:</p>
+    <div class="resultado">
+    </div>
+    
+    <P>MONTO TOTAL DE TARJETAS:</P>
+    <div class="conTar">
+    </div>
         </div>
 
         <script>
@@ -67,14 +79,17 @@
                 p.innerHTML = `
                 <input type="checkbox" ${item.completado ? "checked" : ""}
                     onchange = "toggleDeuda(${index})">
-                    El monto es: $${item.deuda} es cuenta ${item.tipo} con la tarjeta ${item.tarjeta}. DESCRIPCIÓN: ${item.descripcion} fecha:${obtenerFecha()}
-                    <div class="botones">
-                        <button class = "btn" onclick="editarDeuda(${index})">Editar</button>
-                        <button class = "btn" onclick="tipoDeuda(${index})">Tipo</button>
-                        <button class = "btn" onclick="tarjetaDeuda(${index})">Tarjeta</button>
-                        <button class = "btn" onclick="descripcionDeuda(${index})">Descripción</button>
-                        <button class = "btn" onclick="borrarDeuda(${index})">Borrar</button>
-                        <button class = "btn" onclick="abonoDeuda(${index})">abono</button>
+
+                    <span class="${item.completado ? 'completado' : ''}">El monto es: $${item.deuda} es cuenta ${item.tipo} con la tarjeta ${item.tarjeta}. DESCRIPCIÓN: ${item.descripcion} fecha:${obtenerFecha()}
+                    </span>
+                    
+                        <div class="botones">
+                        <button class = "btn" onclick="editarDeuda(${index})">✏️</button>
+                        <button class = "btn" onclick="tipoDeuda(${index})">👥</button>
+                        <button class = "btn" onclick="tarjetaDeuda(${index})">💳</button>
+                        <button class = "btn" onclick="descripcionDeuda(${index})">📝</button>
+                        <button class = "btn" onclick="borrarDeuda(${index})">🗑️</button>
+                        <button class = "btn" onclick="abonoDeuda(${index})">💲</button>
 
                         </div>
                         <br>
@@ -118,9 +133,9 @@
 
             //Editar Una Deuda
             function editarDeuda(index){//edita el monto de la deuda
-                const nuevo = prompt("Editar Deuda", resultado[index].deuda);
-                if(nuevo){
-                    resultado[index].deuda = nuevo;
+                const nuevo = prompt("Editar Deuda", Number(resultado[index].deuda));
+                if(Number(nuevo)){
+                    resultado[index].deuda = Number(nuevo);
                     guardarDeuda();
                     renderDeuda();
                     renderTotales();
@@ -184,7 +199,7 @@
 
                 for(const tarjeta in conTar){
                     const p = document.createElement("p");
-                    p.textContent = `${tarjeta}:$${conTar[tarjeta]}`;
+                    p.textContent = `${tarjeta}: $${conTar[tarjeta]}`;
                     contenedor.appendChild(p);
 
                     guardarDeuda();
