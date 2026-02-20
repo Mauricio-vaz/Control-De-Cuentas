@@ -22,6 +22,7 @@ header{
 .contenedor input[type="text"], input[type="tel"] {
     width: 100px;
     margin: 10px;
+    height: 20px;
     border-radius: 5px;
     border: transparent;
     box-shadow: 0px 0px 5px rgb(153, 142, 142);
@@ -108,3 +109,4 @@ input[type="checkbox"]:after{
     text-decoration: line-through;
     opacity: 0.5;
 }
+
