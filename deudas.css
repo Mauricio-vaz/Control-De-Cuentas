@@ -2,8 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: rgb(89, 139, 104);
+    background-color: #20123A;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
 }
 header{
     width: 100%;
@@ -23,7 +24,7 @@ header{
     margin: 10px;
     border-radius: 5px;
     border: transparent;
-    box-shadow: 0px 0px 5px rgb(0, 0, 0);
+    box-shadow: 0px 0px 5px rgb(153, 142, 142);
     text-align: center;
 }
 
@@ -31,13 +32,79 @@ header{
     display: flex;
 
 }
-.btn{
+.btn{/*botones secundarios*/
     margin: 5px;
     padding: 5px;
     border: 1px solid black;
     border-radius: 5px;
+    background-color: #CB1F9C;
 }
-.btn:hover{
-    background-color: #fff;
-    transition: 0.2s ease-in-out;
+
+.btn1{/*Boton principal para agregar*/
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #CB1F9C;
+    color: black;
+}
+
+/*Su funcion es para que pueda darle forma de movil, entre los label e input*/
+.raya{
+    width: 100%;
+    margin: 10px;
+}
+
+/*Le da un estilo como tipo de botones de iphone a los checkbox*/
+input[type="checkbox"]{
+    appearance: none;
+    width: 35px;
+    height: 18px;
+    background: #ccc;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
+}
+input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: 0.3s;
+}
+input[type="checkbox"]:checked{
+    background: #3bb355;
+}
+input[type="checkbox"]:checked::before{
+    transform: translateX(16px);
+}
+input[type="checkbox"]:after{
+    position: absolute;
+    top: 2px;
+    left: 40px;
+    font-size: 12px;
+    color: white;
+}
+
+    .conTar{
+    padding: 5px;
+    width: 50%;
+    border-radius: 10px;
+    border: 1px solid #CB1F9C;
+}
+.conTar{
+    color: white;
+}
+
+.completado{
+    text-decoration: line-through;
+    opacity: 0.5;
 }
